@@ -1,8 +1,5 @@
 [phases.setup]
-nixPkgs = ["php82", "php82Extensions.mysqli", "php82Extensions.pdo_mysql", "php82Extensions.mbstring", "caddy"]
-
-[phases.build]
-cmds = []
+nixPkgs = ["frankenphp"]
 
 [start]
-cmd = "php-fpm82 & caddy run --config /app/Caddyfile"
+cmd = "frankenphp run --config /app/Caddyfile"
