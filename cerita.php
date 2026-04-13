@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require __DIR__ . '/db.php';
 
 $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';
 

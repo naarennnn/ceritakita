@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require 'db.php';
+require __DIR__ . '/db.php';
 
 $highlight = mysqli_fetch_assoc(mysqli_query($conn,
     "SELECT * FROM cerita WHERE highlight = 1 ORDER BY created_at DESC LIMIT 1"));

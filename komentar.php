@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerita_id'], $_POST['isi'])) {
     $cerita_id = (int) $_POST['cerita_id'];
