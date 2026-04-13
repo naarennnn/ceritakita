@@ -52,6 +52,16 @@ $cerita = mysqli_fetch_all($result, MYSQLI_ASSOC);
     .stat-card{background:#fff;border:1px solid var(--cream2);border-radius:16px;padding:1.25rem;text-align:center}
     .stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--brown-dark);font-weight:700}
     .stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:0.25rem}
+    @media (max-width: 768px) {
+  .admin-wrap{padding:1rem}
+  .stat-cards{grid-template-columns:1fr 1fr}
+  .admin-table{display:block;overflow-x:auto}
+  .admin-header{flex-direction:column;align-items:flex-start;gap:0.5rem}
+  .btn-sm{margin-bottom:0.35rem;display:block;text-align:center}
+}
+@media (max-width:480px){
+  .stat-cards{grid-template-columns:1fr}
+}
   </style>
 </head>
 <body style="background:var(--cream);padding-top:2rem">
