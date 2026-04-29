@@ -2,42 +2,39 @@
 <nav>
   <div class="nav-inner">
     <a href="index.php" class="logo">Cerita<span>Kita</span></a>
-    <ul class="nav-links">
-      <li><a href="index.php" class="<?= $currentPage === 'index.php' ? 'active' : '' ?>">Beranda</a></li>
-      <li><a href="cerita.php" class="<?= $currentPage === 'cerita.php' ? 'active' : '' ?>">Cerita</a></li>
-      <li><a href="tentang.php" class="<?= $currentPage === 'tentang.php' ? 'active' : '' ?>">Tentang</a></li>
-      <li><a href="tulis.php" class="nav-cta <?= $currentPage === 'tulis.php' ? 'nav-cta-active' : '' ?>">Tulis Cerita</a></li>
-    </ul>
-    <div class="nav-indicator" id="nav-indicator"></div>
+    <div class="nav-menu">
+      <div class="nav-pill" id="nav-pill"></div>
+      <a href="index.php" class="nav-item <?= $currentPage === 'index.php' ? 'active' : '' ?>">Beranda</a>
+      <a href="cerita.php" class="nav-item <?= $currentPage === 'cerita.php' ? 'active' : '' ?>">Cerita</a>
+      <a href="tentang.php" class="nav-item <?= $currentPage === 'tentang.php' ? 'active' : '' ?>">Tentang</a>
+      <a href="tulis.php" class="nav-item nav-item-cta <?= $currentPage === 'tulis.php' ? 'active' : '' ?>">Tulis Cerita</a>
+    </div>
   </div>
 </nav>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const activeLink = document.querySelector('.nav-links .active');
-  const indicator = document.getElementById('nav-indicator');
-  const navInner = document.querySelector('.nav-inner');
+  const pill = document.getElementById('nav-pill');
+  const items = document.querySelectorAll('.nav-item');
+  const activeItem = document.querySelector('.nav-item.active');
 
-  function moveIndicator(el) {
+  function movePill(el) {
     if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const navRect = navInner.getBoundingClientRect();
-    indicator.style.width = rect.width + 'px';
-    indicator.style.left = (rect.left - navRect.left) + 'px';
-    indicator.style.opacity = '1';
+    pill.style.width = el.offsetWidth + 'px';
+    pill.style.left = el.offsetLeft + 'px';
+    pill.style.opacity = '1';
   }
 
-  // Set posisi awal
-  if (activeLink) moveIndicator(activeLink);
+  // Posisi awal
+  if (activeItem) movePill(activeItem);
 
-  // Move saat hover
-  document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(link => {
-    link.addEventListener('mouseenter', function() {
-      moveIndicator(this);
+  // Hover
+  items.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      movePill(this);
     });
-    link.addEventListener('mouseleave', function() {
-      if (activeLink) moveIndicator(activeLink);
-      else indicator.style.opacity = '0';
+    item.addEventListener('mouseleave', function() {
+      if (activeItem) movePill(activeItem);
     });
   });
 });
