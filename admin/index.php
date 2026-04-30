@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <title>Admin Login - CeritaKita</title>
   <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
 </head>
 <body>
 <div class="form-wrap" style="max-width:400px">

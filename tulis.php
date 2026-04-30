@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Tulis Cerita - CeritaKita</title>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
 </head>
 <body>
 

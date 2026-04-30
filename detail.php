@@ -44,6 +44,8 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
   <title><?= htmlspecialchars($c['judul']) ?> - CeritaKita</title>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
 </head>
 <body>
 

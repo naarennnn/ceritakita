@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tentang - CeritaKita</title>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
 </head>
 <body>
 

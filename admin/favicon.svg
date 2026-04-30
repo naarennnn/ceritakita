@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#FAF7F2"/>
+  <text x="4" y="22" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#5C4A32">C</text>
+  <text x="14" y="22" font-family="Georgia, serif" font-size="18" font-weight="400" font-style="italic" fill="#C4A882">K</text>
+  <circle cx="26" cy="10" r="4" fill="#E8C5B5"/>
+  <path d="M24 10 C24 8, 26 7, 26 9 C26 7, 28 8, 28 10 C28 12, 26 13.5, 26 13.5 C26 13.5, 24 12, 24 10Z" fill="#C4A882"/>
+</svg>
