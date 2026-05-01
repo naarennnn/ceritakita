@@ -22,14 +22,14 @@ $catClass = [
 ];
 
 $supportText = [
-    'Kuliah'             => 'Kamu hanya sedang capek, bukan gagal',
-    'Keluarga'           => 'Gak semuanya harus kamu tanggung sendiri',
-    'Percintaan'         => 'Kalo hanya rasa sakit, itu bukan cinta',
-    'Self Growth'        => 'Pelan-pelan aja ya, gak semua hal harus instan',
-    'Mental Health'      => 'Kamu sedang berjuang, bukan lemah',
-    'Toxic Relationship' => 'Dia gak berubah, kamu yang harus pergi',
-    'Insecure'           => 'Kamu cukup tanpa menjadi orang lain',
-    'Ekspetasi Sosial'   => 'Hidup kamu bukan standar mereka',
+    'Kuliah'             => 'Kamu hanya sedang lelah, bukan berarti lemah.',
+    'Keluarga'           => 'Aku ngerasain juga',
+    'Percintaan'         => 'Pelukanku untukmu',
+    'Self Growth'        => 'Kamu udah hebat',
+    'Mental Health'      => 'Kamu kuat',
+    'Toxic Relationship' => 'Kamu berharga',
+    'Insecure'           => 'Kamu cukup',
+    'Ekspetasi Sosial'   => 'Jadilah dirimu',
 ];
 $support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
 
@@ -45,12 +45,10 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
   <title><?= htmlspecialchars($c['judul']) ?> - CeritaKita</title>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="shortcut icon" href="/favicon.svg">
 </head>
 <body>
 
-<?php include 'includes/navbar.php'; ?>
+<?php include __DIR__ . '/includes/navbar.php'; ?>
 
 <div class="detail-wrap">
   <a href="cerita.php" class="back-btn">← Kembali</a>
@@ -72,32 +70,32 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
   </div>
 
   <div class="support-big">
-  <p>Cerita ini menyentuh hatimu?</p>
-  <form action="support.php" method="POST">
-    <input type="hidden" name="id" value="<?= $c['id'] ?>">
-    <button type="submit" class="support-big-btn">
-      <i class="ph-fill ph-heart-straight" style="color:#C0547A;font-size:1.1rem"></i> <?= $support ?>
-    </button>
-  </form>
-  <span class="support-count">
-    <?= $c['supports'] ?> orang merasakan hal yang sama
-  </span>
-  <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
-    <button class="action-btn" onclick="toggleBookmark(null, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" id="bookmark-detail">
-      <i class="ph ph-bookmark-simple"></i> Simpan
-    </button>
-    <button class="action-btn" onclick="shareCerita(null, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')">
-      <i class="ph ph-share-network"></i> Bagikan
-    </button>
+    <p>Cerita ini menyentuh hatimu?</p>
+    <form action="support.php" method="POST">
+      <input type="hidden" name="id" value="<?= $c['id'] ?>">
+      <button type="submit" class="support-big-btn">
+        <i class="ph-fill ph-heart-straight" style="color:#C0547A;font-size:1.1rem"></i> <?= $support ?>
+      </button>
+    </form>
+    <span class="support-count">
+      <?= $c['supports'] ?> orang merasakan hal yang sama
+    </span>
+    <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+      <button class="action-btn" id="detail-save-btn"
+        onclick="toggleBookmark(null, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')">
+        <i class="ph ph-star"></i> Simpan
+      </button>
+      <button class="action-btn"
+        onclick="shareCerita(null, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')">
+        <i class="ph ph-share-network"></i> Bagikan
+      </button>
+    </div>
   </div>
 </div>
 
 <div class="komentar-wrap">
-  <h3 class="komentar-title">
-    Pesan untuk penulis.
-  </h3>
-  <p class="komentar-subtitle">
-    Semua pesan anonim. Jaga kata-katamu ya. 
+  <h3 class="komentar-title">Pesan untuk penulis</h3>
+  <p class="komentar-subtitle">Semua pesan anonim. Jaga kata-katamu ya
     <i class="ph-fill ph-heart-straight" style="color:#C0547A;font-size:0.9rem;vertical-align:middle"></i>
   </p>
 
@@ -112,7 +110,7 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
       </button>
     </div>
     <span class="komentar-hint">
-      <i class="ph ph-lock-simple" style="color:#5C4A32;font-size:1rem"></i> 
+      <i class="ph ph-lock-simple" style="color:#5C4A32;font-size:1rem"></i>
       <span style="color:#5C4A32;font-size:0.8rem">Pesanmu tidak akan menampilkan namamu</span>
     </span>
   </form>
@@ -133,12 +131,12 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
     </div>
   <?php else: ?>
     <p class="komentar-empty">
-      Belum ada pesan. Jadilah yang pertama menyemangati!
+      Belum ada pesan. Jadilah yang pertama menyemangati
       <i class="ph-fill ph-heart-straight" style="color:#C0547A;font-size:0.9rem;vertical-align:middle"></i>
     </p>
   <?php endif; ?>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<?php include __DIR__ . '/includes/footer.php'; ?>
 </body>
 </html>

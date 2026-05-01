@@ -53,10 +53,10 @@ $support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
           <?= $c['anonim'] ? 'Anonim' : htmlspecialchars($c['nama']) ?>
         </span>
         <div style="display:flex;align-items:center;gap:0.5rem">
-          <button class="bookmark-btn" onclick="toggleBookmark(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Simpan cerita">
-            <i class="ph ph-bookmark-simple" id="bookmark-<?= $c['id'] ?>"></i>
+          <button class="bookmark-btn" onclick="toggleBookmark(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Simpan">
+            <i class="ph ph-star" id="star-<?= $c['id'] ?>"></i>
           </button>
-          <button class="share-btn" onclick="shareCerita(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Bagikan cerita">
+          <button class="share-btn" onclick="shareCerita(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Bagikan">
             <i class="ph ph-share-network"></i>
           </button>
           <span class="support-btn">

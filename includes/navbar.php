@@ -6,6 +6,9 @@
       <div class="nav-pill" id="nav-pill"></div>
       <a href="index.php" class="nav-item <?= $currentPage === 'index.php' ? 'active' : '' ?>">Beranda</a>
       <a href="cerita.php" class="nav-item <?= $currentPage === 'cerita.php' ? 'active' : '' ?>">Cerita</a>
+      <a href="tersimpan.php" class="nav-item <?= $currentPage === 'tersimpan.php' ? 'active' : '' ?>">
+        <i class="ph ph-star" style="font-size:0.9rem"></i> Tersimpan
+      </a>
       <a href="tentang.php" class="nav-item <?= $currentPage === 'tentang.php' ? 'active' : '' ?>">Tentang</a>
       <a href="tulis.php" class="nav-item <?= $currentPage === 'tulis.php' ? 'active' : '' ?>">Tulis Cerita</a>
     </div>
