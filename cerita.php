@@ -27,9 +27,7 @@ $semuaCerita = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semua Cerita - CeritaKita</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="shortcut icon" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FAF7F2'/><text x='4' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%235C4A32'>C</text><text x='14' y='22' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23C4A882'>K</text><circle cx='26' cy='10' r='4' fill='%23E8C5B5'/></svg>">
 </head>
 <body>
 
