@@ -170,6 +170,12 @@ footer span{color:var(--cream)}
   .home-feed-header{flex-direction:column;align-items:flex-start;gap:0.5rem}
   .stat-cards{grid-template-columns:1fr}
 }
+
+.bookmark-btn,.share-btn{background:none;border:none;cursor:pointer;padding:0.2rem 0.3rem;color:var(--text-light);font-size:1rem;transition:color 0.2s;display:flex;align-items:center}
+.bookmark-btn:hover,.share-btn:hover{color:var(--brown)}
+.action-btn{display:flex;align-items:center;gap:0.4rem;background:var(--cream2);border:none;color:var(--brown-dark);padding:0.5rem 1.25rem;border-radius:100px;font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+.action-btn:hover{background:var(--pink-soft)}
+
 @media (max-width:480px){
   .hero h1{font-size:1.75rem}
   .nav-item{padding:0.35rem 0.5rem;font-size:0.7rem}

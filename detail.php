@@ -72,16 +72,23 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
   </div>
 
   <div class="support-big">
-    <p>Cerita ini menyentuh hatimu?</p>
-    <form action="support.php" method="POST">
-      <input type="hidden" name="id" value="<?= $c['id'] ?>">
-      <button type="submit" class="support-big-btn">
-        <i class="ph-fill ph-heart-straight" style="color:#C0547A;font-size:1.1rem"></i> <?= $support ?>
-      </button>
-    </form>
-    <span class="support-count">
-      <?= $c['supports'] ?> Semua orang merasakan hal yang sama
-    </span>
+  <p>Cerita ini menyentuh hatimu?</p>
+  <form action="support.php" method="POST">
+    <input type="hidden" name="id" value="<?= $c['id'] ?>">
+    <button type="submit" class="support-big-btn">
+      <i class="ph-fill ph-heart-straight" style="color:#C0547A;font-size:1.1rem"></i> <?= $support ?>
+    </button>
+  </form>
+  <span class="support-count">
+    <?= $c['supports'] ?> orang merasakan hal yang sama
+  </span>
+  <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+    <button class="action-btn" onclick="toggleBookmark(null, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" id="bookmark-detail">
+      <i class="ph ph-bookmark-simple"></i> Simpan
+    </button>
+    <button class="action-btn" onclick="shareCerita(null, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')">
+      <i class="ph ph-share-network"></i> Bagikan
+    </button>
   </div>
 </div>
 

@@ -35,7 +35,7 @@ $supportText = [
 $icon = $catIcon[$c['kategori']] ?? 'ph-star';
 $support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
 ?>
-<a href="<?= __DIR__ === '/app/includes' ? '../' : '' ?>detail.php?id=<?= $c['id'] ?>" class="card-link">
+<a href="detail.php?id=<?= $c['id'] ?>" class="card-link">
   <div class="story-card">
     <div class="card-thumb">
       <i class="ph <?= $icon ?>"></i>
@@ -52,9 +52,17 @@ $support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
         <span class="story-author">
           <?= $c['anonim'] ? 'Anonim' : htmlspecialchars($c['nama']) ?>
         </span>
-        <span class="support-btn">
-          <i class="ph ph-heart-straight-fill"></i> <?= $c['supports'] ?> · <?= $support ?>
-        </span>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <button class="bookmark-btn" onclick="toggleBookmark(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Simpan cerita">
+            <i class="ph ph-bookmark-simple" id="bookmark-<?= $c['id'] ?>"></i>
+          </button>
+          <button class="share-btn" onclick="shareCerita(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Bagikan cerita">
+            <i class="ph ph-share-network"></i>
+          </button>
+          <span class="support-btn">
+            <i class="ph ph-heart-straight-fill"></i> <?= $c['supports'] ?>
+          </span>
+        </div>
       </div>
     </div>
   </div>
