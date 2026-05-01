@@ -41,6 +41,7 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FAF7F2'/><text x='3' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%235C4A32'>C</text><text x='15' y='23' font-family='Georgia,serif' font-size='16' font-style='italic' fill='%23C4A882'>K</text></svg>" type="image/svg+xml">
   <title><?= htmlspecialchars($c['judul']) ?> - CeritaKita</title>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="assets/style.css">
