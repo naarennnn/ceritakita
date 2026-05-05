@@ -2,7 +2,7 @@
   Dibuat dengan cinta untuk para perempuan yang butuh didengar · <span>CeritaKita</span>
 </footer>
 
-<div id="share-toast" style="display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--brown-dark);color:var(--cream);padding:0.75rem 1.5rem;border-radius:100px;font-size:0.85rem;z-index:999;font-family:'Poppins',sans-serif;white-space:nowrap">
+<div id="share-toast" style="display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--brown-dark);color:var(--cream);padding:0.75rem 1.5rem;border-radius:100px;font-size:0.85rem;z-index:1000;font-family:'Poppins',sans-serif;white-space:nowrap">
   💛
 </div>
 
@@ -47,7 +47,6 @@ function updateStarIcons() {
     }
   });
 
-  // Update detail page button
   const detailSaveBtn = document.getElementById('detail-save-btn');
   if (detailSaveBtn) {
     const urlId = parseInt(new URLSearchParams(window.location.search).get('id'));
@@ -59,18 +58,9 @@ function updateStarIcons() {
   }
 }
 
-function shareCerita(e, id, judul) {
-  if (e) e.preventDefault();
-  const url = window.location.origin + '/detail.php?id=' + id;
-  if (navigator.share) {
-    navigator.share({ title: judul, text: 'Baca cerita ini di CeritaKita 💛', url });
-  } else {
-    navigator.clipboard.writeText(url).then(() => showToast('Link berhasil disalin! 💛'));
-  }
-}
-
 function showToast(msg) {
   const toast = document.getElementById('share-toast');
+  if (!toast) return;
   toast.textContent = msg;
   toast.style.display = 'block';
   setTimeout(() => toast.style.display = 'none', 2500);
