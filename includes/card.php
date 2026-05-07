@@ -56,9 +56,9 @@ $support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
           <button class="bookmark-btn" onclick="toggleBookmark(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Simpan">
             <i class="ph ph-star" id="star-<?= $c['id'] ?>"></i>
           </button>
-          <button class="share-btn" onclick="shareCerita(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>')" title="Bagikan">
-            <i class="ph ph-share-network"></i>
-          </button>
+          <button class="share-btn" onclick="showShareCard(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>', '<?= addslashes(htmlspecialchars(substr($c['isi'], 0, 200))) ?>', '<?= addslashes($c['kategori']) ?>')" title="Bagikan">
+  <i class="ph ph-share-network"></i>
+</button>
           <span class="support-btn">
             <i class="ph ph-heart-straight-fill"></i> <?= $c['supports'] ?>
           </span>
