@@ -7,8 +7,6 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FAF7F2'/><text x='3' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%235C4A32'>C</text><text x='15' y='23' font-family='Georgia,serif' font-size='16' font-style='italic' fill='%23C4A882'>K</text></svg>" type="image/svg+xml">
   <title>Tentang - CeritaKita</title>
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="shortcut icon" href="/favicon.svg">
 </head>
 <body>
 
@@ -16,9 +14,9 @@
 
 <div class="about-wrap">
   <h1>Tentang CeritaKita</h1>
-  <p class="lead">Bukan platform motivasi. Bukan tempat ceramah. CeritaKita adalah ruang aman buat perempuan yang butuh didengar.</p>
+  <p class="lead">Bukan platform motivasi. Bukan tempat ceramah. CeritaKita adalah ruang aman buat siapa saja yang butuh didengar.</p>
 
-  <p>Kadang kita gak butuh solusi. Kita butuh tahu bahwa orang lain juga pernah ngerasain hal yang sama — dan mereka masih di sini.</p>
+  <p>Kadang kita gak butuh solusi. Kita butuh tahu bahwa orang lain juga pernah ngerasain hal yang sama dan mereka masih di sini.</p>
 
   <p>CeritaKita hadir sebagai tempat berbagi cerita nyata, tanpa filter, tanpa judgment. Anonim kalau kamu mau. Pakai nama kalau kamu siap.</p>
 
@@ -31,17 +29,17 @@
     <div class="about-card">
       <div class="about-card-icon">❤️</div>
       <h3>Suportif</h3>
-      <p>Bukan like, tapi "Kamu gak sendiri." Karena itu yang sebenernya lo butuhkan.</p>
+      <p>Bukan like, tapi "Kamu gak sendiri." Karena itu yang sebenernya kamu butuhkan.</p>
     </div>
     <div class="about-card">
       <div class="about-card-icon">✍️</div>
       <h3>Nyata</h3>
-      <p>Bukan teori. Bukan motivasi kosong. Cerita dari kehidupan perempuan sungguhan.</p>
+      <p>Bukan teori. Bukan motivasi kosong. Cerita dari kehidupan nyata orang-orang sungguhan.</p>
     </div>
   </div>
 
   <p style="color:var(--text-muted);font-size:0.875rem">
-    CeritaKita dibuat dengan niat sederhana: supaya gak ada perempuan yang merasa sendirian dalam ceritanya.
+    CeritaKita dibuat dengan niat sederhana: supaya gak ada satu orang pun yang merasa sendirian dalam ceritanya.
   </p>
 </div>
 

@@ -192,3 +192,22 @@ footer span{color:var(--cream)}
   .story-title{font-size:0.95rem}
   .action-btn{padding:0.4rem 0.9rem;font-size:0.78rem}
 }
+/* =============================================
+   TAMBAHKAN INI KE BAGIAN BAWAH assets/style.css
+   (ganti blok cat-kuliah, cat-selfgrowth, dst)
+   ============================================= */
+
+/* Kategori Baru - Unisex */
+.cat-akademik        { background: #EEF2FF; color: #5B6FA6; }
+.cat-keluarga        { background: #FFF7ED; color: #B45309; }
+.cat-percintaan      { background: #FFF0F6; color: #C0547A; }
+.cat-karir           { background: #F0FDF4; color: #15803D; }
+.cat-mentalhealth    { background: #F5F3FF; color: #7C3AED; }
+.cat-pertemanan      { background: #ECFEFF; color: #0E7490; }
+.cat-identitas       { background: #FFF8F1; color: #C2410C; }
+.cat-tekanansoial    { background: #F8FAFC; color: #475569; }
+
+/* Like Button */
+.like-btn { background:none; border:none; cursor:pointer; padding:0.2rem 0.3rem; color:var(--text-light); font-size:0.82rem; display:flex; align-items:center; gap:0.25rem; transition:color 0.2s; font-family:'Poppins',sans-serif; }
+.like-btn:hover { color: #C0547A; }
+.like-btn i { font-size:1rem; }

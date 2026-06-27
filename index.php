@@ -24,7 +24,7 @@ $ceritaTerbaru = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <div class="hero">
   <div class="hero-badge">Anonim. Aman. Nyata.</div>
-  <h1>Tempat perempuan bercerita,<br><em>tanpa takut dihakimi</em></h1>
+  <h1>Tempat semua orang bercerita,<br><em>tanpa takut dihakimi</em></h1>
   <p>Kadang kita butuh tempat yang bisa dengerin tanpa langsung kasih saran.</p>
   <div class="hero-btns">
     <a href="tulis.php" class="btn-hero">Tulis ceritamu</a>

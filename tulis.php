@@ -37,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Tulis Cerita - CeritaKita</title>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="shortcut icon" href="/favicon.svg">
 </head>
 <body>
 
@@ -71,7 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="custom-select-options" id="custom-options">
           <?php
-          $kategoriList = ['Kuliah','Keluarga','Percintaan','Self Growth','Mental Health','Toxic Relationship','Insecure','Ekspetasi Sosial','Lainnya...'];
+          $kategoriList = [
+              'Akademik',
+              'Keluarga',
+              'Percintaan',
+              'Karir & Masa Depan',
+              'Mental Health',
+              'Pertemanan',
+              'Identitas Diri',
+              'Tekanan Sosial',
+              'Lainnya...'
+          ];
           foreach ($kategoriList as $k): ?>
             <div class="custom-option" onclick="pilihKategori('<?= $k ?>')">
               <?= $k ?>

@@ -1,38 +1,38 @@
 <?php
 $catClass = [
-    'Kuliah'             => 'cat-kuliah',
-    'Keluarga'           => 'cat-keluarga',
-    'Percintaan'         => 'cat-percintaan',
-    'Self Growth'        => 'cat-selfgrowth',
-    'Mental Health'      => 'cat-mentalhealth',
-    'Toxic Relationship' => 'cat-toxicrelationship',
-    'Insecure'           => 'cat-insecure',
-    'Ekspetasi Sosial'   => 'cat-ekspetasisosial',
+    'Akademik'       => 'cat-akademik',
+    'Keluarga'       => 'cat-keluarga',
+    'Percintaan'     => 'cat-percintaan',
+    'Karir & Masa Depan' => 'cat-karir',
+    'Mental Health'  => 'cat-mentalhealth',
+    'Pertemanan'     => 'cat-pertemanan',
+    'Identitas Diri' => 'cat-identitas',
+    'Tekanan Sosial' => 'cat-tekanansoial',
 ];
 
 $catIcon = [
-    'Kuliah'             => 'ph-book-open',
+    'Akademik'           => 'ph-graduation-cap',
     'Keluarga'           => 'ph-house',
     'Percintaan'         => 'ph-heart',
-    'Self Growth'        => 'ph-leaf',
+    'Karir & Masa Depan' => 'ph-briefcase',
     'Mental Health'      => 'ph-brain',
-    'Toxic Relationship' => 'ph-warning',
-    'Insecure'           => 'ph-cloud-rain',
-    'Ekspetasi Sosial'   => 'ph-users',
+    'Pertemanan'         => 'ph-users-three',
+    'Identitas Diri'     => 'ph-person',
+    'Tekanan Sosial'     => 'ph-megaphone',
 ];
 
 $supportText = [
-    'Kuliah'             => 'Kamu hanya sedang lelah, bukan berarti lemah.',
-    'Keluarga'           => 'Istirahat dulu yuk, kamu gak harus menanggung semua beban sendiri.',
-    'Percintaan'         => 'Cinta memang indah, tapi kalo udah gak bisa diperbaiki, tinggalin aja ya.',
-    'Self Growth'        => 'Kamu bukan lambat, tapi kamu sedang berjalan dengan perlahan.',
-    'Mental Health'      => 'Nangis dulu yuk, kamu juga berhak mengeluarkan air mata.',
-    'Toxic Relationship' => 'Meninggalkan memang berat, tapi kamu berhak bahagia.',
-    'Insecure'           => 'Standar mereka bukan patokan hidup kamu. Be yourself!',
-    'Ekspetasi Sosial'   => 'Hidup kamu hanya untuk kamu, ikuti kata hati bukan kata manusia.',
+    'Akademik'           => 'Nilaimu bukan cerminan nilaimu sebagai manusia.',
+    'Keluarga'           => 'Kamu gak harus menanggung semua beban ini sendirian.',
+    'Percintaan'         => 'Rasa sakit ini nyata, tapi kamu juga bisa melewatinya.',
+    'Karir & Masa Depan' => 'Kamu bukan lambat. Kamu sedang membangun fondasi.',
+    'Mental Health'      => 'Minta bantuan itu berani, bukan lemah.',
+    'Pertemanan'         => 'Lingkungan yang baik adalah hakmu, bukan kemewahan.',
+    'Identitas Diri'     => 'Standar mereka bukan patokan hidupmu.',
+    'Tekanan Sosial'     => 'Hidupmu adalah milikmu. Ikuti kata hatimu.',
 ];
 
-$icon = $catIcon[$c['kategori']] ?? 'ph-star';
+$icon    = $catIcon[$c['kategori']]    ?? 'ph-star';
 $support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
 ?>
 <a href="detail.php?id=<?= $c['id'] ?>" class="card-link">
@@ -57,8 +57,8 @@ $support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
             <i class="ph ph-star" id="star-<?= $c['id'] ?>"></i>
           </button>
           <button class="share-btn" onclick="showShareCard(event, <?= $c['id'] ?>, '<?= addslashes(htmlspecialchars($c['judul'])) ?>', '<?= addslashes(htmlspecialchars(substr($c['isi'], 0, 200))) ?>', '<?= addslashes($c['kategori']) ?>')" title="Bagikan">
-  <i class="ph ph-share-network"></i>
-</button>
+            <i class="ph ph-share-network"></i>
+          </button>
           <span class="support-btn">
             <i class="ph ph-heart-straight-fill"></i> <?= $c['supports'] ?>
           </span>

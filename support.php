@@ -1,16 +1,22 @@
 <?php
 require __DIR__ . '/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-    $id = (int) $_POST['id'];
-    mysqli_query($conn, "UPDATE cerita SET supports = supports + 1 WHERE id = $id");
-    
-    // Ambil id cerita lalu redirect balik ke halaman detail
-    header("Location: detail.php?id=$id");
+$id     = isset($_POST['id']) ? (int)$_POST['id'] : 0;
+$action = isset($_POST['action']) ? $_POST['action'] : 'like';
+
+if (!$id) {
+    echo json_encode(['total' => 0]);
     exit;
 }
 
-// Kalau diakses langsung tanpa POST, redirect ke beranda
-header("Location: index.php");
-exit;
-?>
+if ($action === 'unlike') {
+    mysqli_query($conn, "UPDATE cerita SET supports = GREATEST(supports - 1, 0) WHERE id = $id");
+} else {
+    mysqli_query($conn, "UPDATE cerita SET supports = supports + 1 WHERE id = $id");
+}
+
+$result = mysqli_query($conn, "SELECT supports FROM cerita WHERE id = $id");
+$row    = mysqli_fetch_assoc($result);
+
+header('Content-Type: application/json');
+echo json_encode(['total' => (int)$row['supports']]);

@@ -36,7 +36,7 @@ $semuaCerita = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <div class="page-hero">
   <h1>Semua Cerita</h1>
-  <p>Cerita nyata dari perempuan nyata. Kamu gak sendiri.</p>
+  <p>Cerita nyata dari orang-orang nyata. Kamu gak sendiri.</p>
 </div>
 
 <div class="filter-bar">
