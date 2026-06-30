@@ -21,18 +21,6 @@ $catClass = [
     'Tekanan Sosial'     => 'cat-tekanansoial',
 ];
 
-$supportText = [
-    'Akademik'           => 'Nilaimu bukan cerminan nilaimu sebagai manusia.',
-    'Keluarga'           => 'Kamu gak harus menanggung semua beban ini sendirian.',
-    'Percintaan'         => 'Rasa sakit ini nyata, tapi kamu juga bisa melewatinya.',
-    'Karir & Masa Depan' => 'Kamu bukan lambat. Kamu sedang membangun fondasi.',
-    'Mental Health'      => 'Minta bantuan itu berani, bukan lemah.',
-    'Pertemanan'         => 'Lingkungan yang baik adalah hakmu, bukan kemewahan.',
-    'Identitas Diri'     => 'Standar mereka bukan patokan hidupmu.',
-    'Tekanan Sosial'     => 'Hidupmu adalah milikmu. Ikuti kata hatimu.',
-];
-$support = $supportText[$c['kategori']] ?? 'Kamu gak sendiri';
-
 $komResult = mysqli_query($conn, "SELECT * FROM komentar WHERE cerita_id = $id ORDER BY created_at DESC");
 $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
 ?>
@@ -43,6 +31,23 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FAF7F2'/><text x='3' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%235C4A32'>C</text><text x='15' y='23' font-family='Georgia,serif' font-size='16' font-style='italic' fill='%23C4A882'>K</text></svg>" type="image/svg+xml">
   <title><?= htmlspecialchars($c['judul']) ?> - CeritaKita</title>
+
+  <!-- Open Graph / Preview Card -->
+  <meta property="og:type"        content="article">
+  <meta property="og:site_name"   content="CeritaKita">
+  <meta property="og:title"       content="<?= htmlspecialchars($c['judul']) ?>">
+  <meta property="og:description" content="<?= htmlspecialchars(substr($c['isi'], 0, 150)) ?>...">
+  <meta property="og:url"         content="https://ceritakita.id/detail.php?id=<?= $c['id'] ?>">
+  <meta property="og:image"       content="https://ceritakita.id/assets/og-image.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="<?= htmlspecialchars($c['judul']) ?>">
+  <meta name="twitter:description" content="<?= htmlspecialchars(substr($c['isi'], 0, 150)) ?>...">
+  <meta name="twitter:image"       content="https://ceritakita.id/assets/og-image.png">
+
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -51,11 +56,13 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
 <?php include __DIR__ . '/includes/navbar.php'; ?>
 
 <div class="detail-wrap">
-  <a href="cerita.php" class="back-btn">← Kembali</a>
 
-  <span class="detail-cat <?= $catClass[$c['kategori']] ?? '' ?>">
-    <?= $c['kategori'] ?>
-  </span>
+  <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem">
+    <a href="cerita.php" class="back-btn">← Kembali</a>
+    <span class="detail-cat <?= $catClass[$c['kategori']] ?? '' ?>">
+      <?= $c['kategori'] ?>
+    </span>
+  </div>
 
   <div class="detail-title"><?= htmlspecialchars($c['judul']) ?></div>
 
@@ -65,10 +72,12 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
     <span><?= date('d M Y', strtotime($c['created_at'])) ?></span>
   </div>
 
-  <div class="detail-body">
+  <!-- Konten cerita dalam card -->
+  <div style="background:#fff;border:1px solid var(--cream2);border-radius:16px;padding:2rem;margin-bottom:2rem;line-height:1.9;font-size:0.95rem;color:var(--text-main);font-weight:300;font-family:'Poppins',sans-serif">
     <?= nl2br(htmlspecialchars($c['isi'])) ?>
   </div>
 
+  <!-- Like & Aksi -->
   <div class="support-big">
     <p>Cerita ini menyentuh hatimu?</p>
     <button class="support-big-btn" id="detail-like-btn" onclick="toggleLike(null, <?= $c['id'] ?>)">
@@ -93,8 +102,10 @@ $komentars = mysqli_fetch_all($komResult, MYSQLI_ASSOC);
       </button>
     </div>
   </div>
+
 </div>
 
+<!-- Komentar -->
 <div class="komentar-wrap">
   <h3 class="komentar-title">Pesan untuk penulis</h3>
   <p class="komentar-subtitle">Semua pesan anonim. Jaga kata-katamu ya

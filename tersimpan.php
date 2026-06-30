@@ -36,31 +36,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (bookmarks.length === 0) return;
 
-  // Ambil cerita dari database via AJAX
   const ids = bookmarks.map(b => b.id).join(',');
 
   fetch('api_saved.php?ids=' + ids)
     .then(r => r.json())
     .then(data => {
-      if (data.length === 0) {
-        return;
-      }
+      if (data.length === 0) return;
+
       container.innerHTML = '<div class="stories-grid" id="saved-grid"></div>';
       const grid = document.getElementById('saved-grid');
 
+      const catIcon = {
+        'Akademik'           : 'ph-graduation-cap',
+        'Keluarga'           : 'ph-house',
+        'Percintaan'         : 'ph-heart',
+        'Karir & Masa Depan' : 'ph-briefcase',
+        'Mental Health'      : 'ph-brain',
+        'Pertemanan'         : 'ph-users-three',
+        'Identitas Diri'     : 'ph-person',
+        'Tekanan Sosial'     : 'ph-megaphone',
+      };
+
+      const catClass = {
+        'Akademik'           : 'cat-akademik',
+        'Keluarga'           : 'cat-keluarga',
+        'Percintaan'         : 'cat-percintaan',
+        'Karir & Masa Depan' : 'cat-karir',
+        'Mental Health'      : 'cat-mentalhealth',
+        'Pertemanan'         : 'cat-pertemanan',
+        'Identitas Diri'     : 'cat-identitas',
+        'Tekanan Sosial'     : 'cat-tekanansoial',
+      };
+
       data.forEach(c => {
+        const icon  = catIcon[c.kategori]  || 'ph-star';
+        const kelas = catClass[c.kategori] || '';
+        const nama  = c.anonim == 1 ? 'Anonim' : c.nama;
+        const preview = c.isi.substring(0, 100) + '...';
+
         grid.innerHTML += `
           <a href="detail.php?id=${c.id}" class="card-link">
             <div class="story-card">
-              <div class="card-thumb" style="background:var(--cream2);height:80px;display:flex;align-items:center;justify-content:center">
-                <i class="ph ph-star-fill" style="font-size:2rem;color:var(--brown-light)"></i>
+              <div class="card-thumb">
+                <i class="ph ${icon}"></i>
               </div>
               <div class="card-body">
-                <span class="story-cat">${c.kategori}</span>
+                <span class="story-cat ${kelas}">${c.kategori}</span>
                 <div class="story-title">${c.judul}</div>
-                <div class="story-preview">${c.isi.substring(0, 100)}...</div>
+                <div class="story-preview">${preview}</div>
                 <div class="story-meta">
-                  <span class="story-author">${c.anonim == 1 ? 'Anonim' : c.nama}</span>
+                  <span class="story-author">${nama}</span>
                   <button class="bookmark-btn" onclick="removeBookmark(event, ${c.id})" title="Hapus dari simpanan">
                     <i class="ph ph-star-fill" style="color:var(--brown)"></i>
                   </button>

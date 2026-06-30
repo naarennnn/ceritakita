@@ -22,9 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nama     = mysqli_real_escape_string($conn, $nama);
 
         mysqli_query($conn,
-            "INSERT INTO cerita (judul, isi, kategori, nama, anonim)
-             VALUES ('$judul', '$isi', '$kategori', '$nama', '$anonim')");
-        $success = true;
+    "INSERT INTO cerita (judul, isi, kategori, nama, anonim)
+     VALUES ('$judul', '$isi', '$kategori', '$nama', '$anonim')");
+header("Location: index.php?kirim=1");
+exit;
     }
 }
 ?>

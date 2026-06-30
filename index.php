@@ -1,4 +1,5 @@
 <?php
+$kirim = isset($_GET['kirim']) && $_GET['kirim'] == 1;
 require __DIR__ . '/db.php';
 
 $highlight = mysqli_fetch_assoc(mysqli_query($conn,
@@ -21,6 +22,14 @@ $ceritaTerbaru = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <body>
 
 <?php include __DIR__ . '/includes/navbar.php'; ?>
+
+<?php if ($kirim): ?>
+<div style="max-width:900px;margin:5rem auto 0;padding:0 2rem">
+  <div style="background:#F0FBF4;border:1px solid #B8E0C8;border-radius:14px;padding:1.25rem;text-align:center;color:#3A7D54;font-size:0.875rem">
+    Ceritamu sudah terkirim 💛 Terima kasih sudah berani berbagi.
+  </div>
+</div>
+<?php endif; ?>
 
 <div class="hero">
   <div class="hero-badge">Anonim. Aman. Nyata.</div>
